@@ -3,6 +3,9 @@ import Form from "./Form";
 import Result from "./Result";
 import "./App.css";
 
+// Key to API
+const APIKey = "d924c5db7f712ccd58435c522a227137";
+
 class App extends Component {
 	state = {
 		value: "",
@@ -14,6 +17,7 @@ class App extends Component {
 		pressure: "",
 		wind: "",
 		err: "",
+		icon: "",
 	};
 
 	handleInputChange = (e) => {
@@ -25,7 +29,7 @@ class App extends Component {
 	handleCitySubmit = (e) => {
 		e.preventDefault();
 
-		const API = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=d924c5db7f712ccd58435c522a227137`;
+		const API = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
 
 		fetch(API)
 			.then((response) => {
@@ -35,8 +39,26 @@ class App extends Component {
 				throw Error("Niestety nie działa");
 			})
 			.then((response) => response.json())
-			.then((data) => console.log(data))
-			.catch(this.state.err);
+			.then((data) => {
+				console.log(data);
+				this.setState((prevState) => ({
+					err: false,
+					date: new Date().toLocaleString(),
+					city: prevState.value,
+					sunrise: data.sys.sunrise,
+					sunset: data.sys.sunset,
+					temp: data.main.temp,
+					pressure: data.main.pressure,
+					wind: data.wind.speed,
+				}));
+			})
+			.catch((err) => {
+				this.setState((prevState) => ({
+					err: true,
+					city: prevState.city,
+				}));
+				console.log(err);
+			});
 	};
 	render() {
 		return (
@@ -46,7 +68,7 @@ class App extends Component {
 					change={this.handleInputChange}
 					submit={this.handleCitySubmit}
 				/>
-				<Result />
+				<Result weather={this.state} />
 			</>
 		);
 	}
