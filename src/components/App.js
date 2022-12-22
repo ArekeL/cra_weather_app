@@ -16,8 +16,9 @@ class App extends Component {
 		temp: "",
 		pressure: "",
 		wind: "",
+		rain: "",
+		snow: "",
 		err: "",
-		icon: "",
 	};
 
 	handleInputChange = (e) => {
