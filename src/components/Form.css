@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+.inp,
+.btn {
+	margin: 30px 15px;
+	padding: 10px 15px;
+	width: 30vw;
+	font-size: 20px;
+	background-color: aliceblue;
+	color: #307f82;
+	border: 2px solid #307f82;
+	border-radius: 10px;
+}
+input {
+	outline: none;
+}
+.inp::placeholder {
+	color: #307f8289;
+}
+.inp:focus {
+	background-color: #307f82;
+	color: aliceblue;
+	border-color: #307f82;
+	transition: 0.7s;
+}
+
+.btn {
+	cursor: progress;
+}
+
+.btn:hover {
+	background-color: #307f82;
+	color: aliceblue;
+	transition: 0.7s;
+}

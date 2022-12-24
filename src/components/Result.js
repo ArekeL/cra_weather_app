@@ -21,34 +21,48 @@ const Result = (props) => {
 		console.log(sunriseTime);
 		content = (
 			<div>
-				<div className='icon'>
-					<MdOutlineMapsHomeWork />
+				<div className='wrapper city'>
+					<div className='icon'>
+						<MdOutlineMapsHomeWork />
+					</div>
+					<div className='info'>{city}</div>
 				</div>
-				<div className='imfo'>Miasto: {city}</div>
-				<div className='icon'>
-					<WiTime4 />
+				<div className='wrapper date'>
+					<div className='icon'>
+						<WiTime4 />
+					</div>
+					<div className='info'>{date}</div>
 				</div>
-				<div className='imfo'>Czas {date}</div>
-				<div className='icon'>
-					<WiThermometer />
+				<div className='wrapper temp'>
+					<div className='icon'>
+						<WiThermometer />
+					</div>
+					<div className='info'>{temp} &#176;C</div>
 				</div>
-				<div className='imfo'>Temperatura {temp} &#176;C</div>
-				<div className='icon'>
-					<WiSunrise />
+				<div className='wrapper sunriseTime'>
+					<div className='icon'>
+						<WiSunrise />
+					</div>
+					<div className='info'>{sunriseTime}</div>
 				</div>
-				<div className='imfo'>Wschód słońca {sunriseTime}</div>
-				<div className='icon'>
-					<WiSunset />
+				<div className='wrapper sunsetTime'>
+					<div className='icon'>
+						<WiSunset />
+					</div>
+					<div className='info'>{sunsetTime}</div>
 				</div>
-				<div className='imfo'>Zachód Słońca {sunsetTime}</div>
-				<div className='icon'>
-					<WiSandstorm />
+				<div className='wrapper wind'>
+					<div className='icon'>
+						<WiSandstorm />
+					</div>
+					<div className='info'>{wind} m/s</div>
 				</div>
-				<div className='imfo'>Siła wiatru {wind} m/s</div>
-				<div className='icon'>
-					<WiBarometer />
+				<div className='wrapper pressure'>
+					<div className='icon'>
+						<WiBarometer />
+					</div>
+					<div className='info'>{pressure} hPa</div>
 				</div>
-				<div className='imfo'>Ciśnienie {pressure} hPa</div>
 			</div>
 		);
 	}

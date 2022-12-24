@@ -1,3 +1,8 @@
+body {
+	background-color: #77e3ba55;
+}
 .App {
 	text-align: center;
+	margin: 20px auto;
+	color: #000000;
 }
