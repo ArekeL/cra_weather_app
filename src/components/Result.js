@@ -9,7 +9,7 @@ import { WiBarometer } from "react-icons/wi";
 import "./Result.css";
 
 const Result = (props) => {
-	const { err, date, city, sunrise, sunset, temp, pressure, wind } =
+	const { err, date, city, sunrise, sunset, temp, pressure, wind, country } =
 		props.weather;
 
 	let content = null;
@@ -18,14 +18,15 @@ const Result = (props) => {
 		const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
 		const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
 
-		console.log(sunriseTime);
 		content = (
 			<div>
 				<div className='wrapper city'>
 					<div className='icon'>
 						<MdOutlineMapsHomeWork />
 					</div>
-					<div className='info'>{city}</div>
+					<div className='info'>
+						{city.toUpperCase()} {country}
+					</div>
 				</div>
 				<div className='wrapper date'>
 					<div className='icon'>
@@ -69,7 +70,7 @@ const Result = (props) => {
 
 	return (
 		<div className='result'>
-			{err ? `Nie mamy danych dla ${city}` : content}
+			{err ? `Sorry, no data available for - ${city.toUpperCase()}` : content}
 		</div>
 	);
 };

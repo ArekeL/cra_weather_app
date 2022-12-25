@@ -16,8 +16,7 @@ class App extends Component {
 		temp: "",
 		pressure: "",
 		wind: "",
-		rain: "",
-		snow: "",
+		country: "",
 		err: "",
 	};
 
@@ -37,17 +36,17 @@ class App extends Component {
 				if (response.ok) {
 					return response;
 				}
-				throw Error("Niestety nie działa");
+				throw Error("Error something went wrong");
 			})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				this.setState((prevState) => ({
 					err: false,
 					date: new Date().toLocaleString(),
 					city: prevState.value,
 					sunrise: data.sys.sunrise,
 					sunset: data.sys.sunset,
+					country: data.sys.country,
 					temp: data.main.temp,
 					pressure: data.main.pressure,
 					wind: data.wind.speed,
@@ -56,7 +55,7 @@ class App extends Component {
 			.catch((err) => {
 				this.setState((prevState) => ({
 					err: true,
-					city: prevState.city,
+					city: prevState.value,
 				}));
 				console.log(err);
 			});
@@ -64,6 +63,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
+				<p className='title'>Weather</p>
 				<Form
 					value={this.state.value}
 					change={this.handleInputChange}
