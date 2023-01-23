@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cra_weather_app/static/css/main.c9733024.css",
+    "main.js": "/cra_weather_app/static/js/main.a474af59.js",
+    "static/js/787.ffab8a8c.chunk.js": "/cra_weather_app/static/js/787.ffab8a8c.chunk.js",
+    "index.html": "/cra_weather_app/index.html",
+    "main.c9733024.css.map": "/cra_weather_app/static/css/main.c9733024.css.map",
+    "main.a474af59.js.map": "/cra_weather_app/static/js/main.a474af59.js.map",
+    "787.ffab8a8c.chunk.js.map": "/cra_weather_app/static/js/787.ffab8a8c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9733024.css",
+    "static/js/main.a474af59.js"
+  ]
+}
